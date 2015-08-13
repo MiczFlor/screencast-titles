@@ -229,7 +229,7 @@ function html_page() {
 			</div>
 			<div class=\"info\">
 				<p><span>".$MY_ENV['date']."</span><span>".$lang[$MY_ENV['target']]."</span><span>".$lang['language'].": ".$MY_ENV['language']."</span></p>
-				<p>www.sourcefabric.com</p>
+				<p>www.sourcefabric.org</p>
 			</div>
 
 			<footer>
