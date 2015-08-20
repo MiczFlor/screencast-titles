@@ -1,19 +1,18 @@
 <!-- lang-cz.php -->
 <?php
 $lang['pagetitle'] = "Vytvořte svůj vlastní screencast";
-$lang['errorform'] = "Zjednodušte to pro své posluchače a poskytněte všechny relevantní informace.";
+$lang['errorform'] = "Zjednodušte to svým posluchačům a poskytněte všechny relevantní informace.";
 $lang['langselect'] = "Vyberte jazyk";
 $lang['title'] = "Název";
 $lang['description'] = "Popis";
-$lang['project'] = "Project";
+$lang['project'] = "Projekt";
 $lang['version'] = "Verze";
-$lang['imgurl'] = "Your image (URL)";
+$lang['imgurl'] = "Váš obrázek (URL adresa)";
 $lang['target'] = "Cílova skupina";
 $lang['editors'] = "Editoři &amp; Novináři";
 $lang['template'] = "Vývoj šablon";
 $lang['administration'] = "Administrace";
-$lang['administration'] = "Administration";
-$lang['trainer'] = "Trainer";
+$lang['trainer'] = "Instruktor";
 $lang['name'] = "Vaše jméno";
 $lang['email'] = "Vaše e-mailová adresa";
 $lang['language'] = "Jazyk";
