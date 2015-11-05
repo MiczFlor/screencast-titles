@@ -3,6 +3,14 @@ $MY_ENV = array();
 $MY_ENV['complete'] = "yes"; // assume the best: we got all what we need in the form
 $MY_ENV['message']  = ""; // empty to start with, might become an error message later, used in form
 $MY_ENV['date']     = date('j. F Y');
+// URL shown on screencast page
+$MY_ENV['wwwurl']['airtime']      = "www.airtime.pro";
+$MY_ENV['wwwurl']['booktype']     = "www.booktype.pro";
+$MY_ENV['wwwurl']['omnibook']     = "www.omnibook.pro";
+$MY_ENV['wwwurl']['newscoop']     = "www.sourcefabric.org";
+$MY_ENV['wwwurl']['superdesk']    = "www.sourcefabric.org";
+$MY_ENV['wwwurl']['screencast']   = "www.sourcefabric.org";
+$MY_ENV['wwwurl']['sourcefabric'] = "www.sourcefabric.org";
 if (isset($_POST['title']))       { $MY_ENV['title'] = stripslashes($_POST['title']); }
 if (isset($_POST['description'])) { $MY_ENV['description'] = stripslashes($_POST['description']);}
 if (isset($_POST['project']))     { $MY_ENV['project'] = stripslashes($_POST['project']);}
@@ -12,7 +20,7 @@ if (isset($_POST['name']))        { $MY_ENV['name'] = stripslashes($_POST['name'
 if (isset($_POST['email']))       { $MY_ENV['email'] = stripslashes($_POST['email']);}
 if (isset($_POST['date']))        { $MY_ENV['date'] = stripslashes($_POST['date']);}
 if (isset($_POST['language']))    { $MY_ENV['language'] = stripslashes($_POST['language']);}
-if (isset($_POST['imgurl']))      { $MY_ENV['imgurl'] = stripslashes($_POST['imgurl']);}
+if (isset($_POST['imgurl']))      { $MY_ENV['imgurl'] = trim(stripslashes($_POST['imgurl']));}
 // check if all information filled out
 if (empty($MY_ENV['language']))     { $MY_ENV['complete'] = "language"; } // we didn't get this variable, ask for it later
 if (empty($MY_ENV['name']))         { $MY_ENV['complete'] = "name"; } // we didn't get this variable, ask for it later
@@ -48,6 +56,7 @@ if (isset($MY_ENV['title']) && $MY_ENV['complete'] != "yes") {
 // this is an awkward way of doing this. I am a bit embarrassed about it. But no time to fix it.
 if ($MY_ENV['project'] == "airtime")        { $MY_ENV['selected']['projairtime'] = " SELECTED"; } 
 if ($MY_ENV['project'] == "booktype")       { $MY_ENV['selected']['projbooktype'] = " SELECTED"; } 
+if ($MY_ENV['project'] == "omnibook")       { $MY_ENV['selected']['projomnibook'] = " SELECTED"; } 
 if ($MY_ENV['project'] == "newscoop")       { $MY_ENV['selected']['projnewscoop'] = " SELECTED"; } 
 if ($MY_ENV['project'] == "superdesk")      { $MY_ENV['selected']['projsuperdesk'] = " SELECTED"; } 
 if ($MY_ENV['project'] == "screencast")     { $MY_ENV['selected']['projscreencast'] = " SELECTED"; } 
@@ -128,6 +137,7 @@ function html_form() {
 					<select name=\"project\">
 					<option value=\"airtime\"".$MY_ENV['selected']['projairtime'].">Airtime</option>
 					<option value=\"booktype\"".$MY_ENV['selected']['projbooktype'].">Booktype</option>
+					<option value=\"omnibook\"".$MY_ENV['selected']['projomnibook'].">Omnibook</option>
 					<option value=\"newscoop\"".$MY_ENV['selected']['projnewscoop'].">Newscoop</option>
 					<option value=\"superdesk\"".$MY_ENV['selected']['projsuperdesk'].">Superdesk</option>
 					<option value=\"screencast\"".$MY_ENV['selected']['projscreencast'].">Screencast</option>
@@ -166,6 +176,7 @@ function html_form() {
 					<label for=\"target\">".$lang['target']."</label>
 					<select name=\"target\">
 					<option value=\"editors\"".$MY_ENV['selected']['targeditors'].">".$lang['editors']."</option>
+					<option value=\"authors\"".$MY_ENV['selected']['targauthors'].">".$lang['authors']."</option>
 					<option value=\"template\"".$MY_ENV['selected']['targtemplate'].">".$lang['template']."</option>
 					<option value=\"administration\"".$MY_ENV['selected']['targadministration'].">".$lang['administration']."</option>
 					<option value=\"trainer\"".$MY_ENV['selected']['targtrainer'].">".$lang['trainer']."</option>
@@ -215,7 +226,7 @@ function html_page() {
   global $lang;
   $return = "";
   $return .= "
-<body>
+<body class=".$MY_ENV['project'].">
 	<div class=\"wrapper ".$MY_ENV['project']."\">
 		<div class=\"content\">
 			<div class=\"title\">
@@ -229,13 +240,20 @@ function html_page() {
 			</div>
 			<div class=\"info\">
 				<p><span>".$MY_ENV['date']."</span><span>".$lang[$MY_ENV['target']]."</span><span>".$lang['language'].": ".$MY_ENV['language']."</span></p>
-				<p>www.sourcefabric.org</p>
+				<p>".$MY_ENV['wwwurl'][$MY_ENV['project']]."</p>
 			</div>
 
 			<footer>
-				<p class=\"version\"><span>".ucfirst($MY_ENV['project'])."</span> <span>".$lang['version']." ".$MY_ENV['version']."</span></p>
-				<img src=\"img/".$MY_ENV['project']."_logo.png\">
-				<div class=\"colors\">
+				<p class=\"version\"><span>".ucfirst($MY_ENV['project'])."</span>";
+  if(trim($MY_ENV['version']) != "") {
+    $return .= "				<span>".$lang['version']." ".$MY_ENV['version']."</span>";
+  }
+  $return .= "
+				</p>";
+  if(file_exists("img/".$MY_ENV['project']."_logo.png")) {
+    $return .= "				<img src=\"img/".$MY_ENV['project']."_logo.png\">";
+  }
+  $return .= "				<div class=\"colors\">
 					<span class=\"orange\">&nbsp;</span>
 					<span class=\"blue\">&nbsp;</span>
 					<span class=\"green\">&nbsp;</span>
