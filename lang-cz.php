@@ -13,6 +13,7 @@ $lang['editors'] = "Editoři &amp; Novináři";
 $lang['template'] = "Vývoj šablon";
 $lang['administration'] = "Administrace";
 $lang['trainer'] = "Instruktor";
+$lang['authors'] = "Autoři";
 $lang['name'] = "Vaše jméno";
 $lang['email'] = "Vaše e-mailová adresa";
 $lang['language'] = "Jazyk";

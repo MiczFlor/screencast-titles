@@ -12,6 +12,7 @@ $lang['target'] = "Target group";
 $lang['editors'] = "Editors &amp; Journalists";
 $lang['template'] = "Template development";
 $lang['administration'] = "Administration";
+$lang['authors'] = "Authors";
 $lang['trainer'] = "Trainer";
 $lang['screencaster'] = "Screencaster";
 $lang['name'] = "Your name";

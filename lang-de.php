@@ -13,6 +13,7 @@ $lang['editors'] = "Redaktionelle Arbeit";
 $lang['template'] = "Template-Entwicklung";
 $lang['administration'] = "Administration";
 $lang['trainer'] = "Training";
+$lang['authors'] = "Autoren/innen";
 $lang['screencaster'] = "Screencaster";
 $lang['name'] = "Name";
 $lang['email'] = "E-mail";

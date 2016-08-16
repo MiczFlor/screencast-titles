@@ -2,7 +2,7 @@ body {
 	padding: 0px;
 	margin: 0px;
 	font-family: 'Roboto', sans-serif;
-	font-size: 18px;
+	font-size: 24px;
 	color: #fff;
 	font-weight: 300;
 	background: #263143;
@@ -25,24 +25,33 @@ a:hover {
   color: red;
 }
 
-.content {
+.content, .footerwrapper {
 	width: 100%;
-	max-width: 700px;
+	max-width: 800px;
 	margin: 0 auto;
 }
 
 .content .title, .content .info, .content footer {
-	padding: 30px 0px;
+	padding: 40px 0px;
 	display: block;
 }
 
 .content h1, .content h2 {
 	font-family: 'Roboto Slab', serif;
-	font-size: 48px;
 	font-weight: 400;
 	border-bottom: 4px solid rgba(255, 255, 255, 0.5);
 	display: inline;
 	margin: 0px;
+}
+
+.content h1 {
+  font-size: 52px;
+  text-transform: none;
+}
+
+.content h2 {
+  font-size: 36px;
+  margin-top: 1em;
 }
 
 .superdesk .content h1, .superdesk .content h2, .liveblog .content h1, .liveblog .content h2, .citizendesk .content h1, .citizendesk .content h2 {
@@ -62,7 +71,7 @@ a:hover {
 }
 
 .content .author {
-	margin: 30px 0px;
+	margin: 36px 0px;
 }
 
 .content figure {
@@ -79,12 +88,12 @@ a:hover {
 
 .content .name {
 	font-family: 'Roboto Slab', serif;
-	font-size: 30px;
+	font-size: 36px;
 	font-weight: 400;
 }
 
 .content .email {
-	font-size: 18px;
+	font-size: 22px;
 	font-weight: 300;
 }
 
@@ -106,13 +115,13 @@ a:hover {
 }
 
 footer {
-	position: relative;
-	margin-top: 30px;
+/*	position: relative;*/
+/*	margin-top: 30px;*/
 }
 
 footer .version {
 	display: inline-block;
-	font-size: 15px;
+	font-size: 16px;
 	opacity: 0.6;
 }
 
@@ -129,7 +138,7 @@ footer img {
 
 .colors span {
 	width: 20%;
-	height: 10px;
+	height: 20px;
 	float: left;
 }
 
@@ -244,4 +253,34 @@ footer img {
 
 .content input[type="file"] {
 	text-indent: 0px;
+}
+
+/* sticky footer */
+html, body {
+  height: 100%;
+}
+
+.wrapper { min-height: 100%; }
+
+.content {
+  overflow:auto;
+	padding-bottom: 150px; /* must be same height as the footer */
+}  
+
+.footerwrapper {
+  position: relative;
+	margin-top: -80px; /* negative value of footer height */
+	height: 80px;
+	clear:both;
+	padding: 0;
+	margin-bottom: 0;
+} 
+
+/*Opera Fix*/
+body:before {
+	content:"";
+	height:100%;
+	float:left;
+	width:0;
+	margin-top:-32767px;/
 }

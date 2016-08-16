@@ -8,7 +8,7 @@ $MY_ENV['wwwurl']['airtime']      = "www.airtime.pro";
 $MY_ENV['wwwurl']['booktype']     = "www.booktype.pro";
 $MY_ENV['wwwurl']['omnibook']     = "www.omnibook.pro";
 $MY_ENV['wwwurl']['newscoop']     = "www.sourcefabric.org";
-$MY_ENV['wwwurl']['superdesk']    = "www.sourcefabric.org";
+$MY_ENV['wwwurl']['superdesk']    = "www.superdesk.org";
 $MY_ENV['wwwurl']['screencast']   = "www.sourcefabric.org";
 $MY_ENV['wwwurl']['sourcefabric'] = "www.sourcefabric.org";
 if (isset($_POST['title']))       { $MY_ENV['title'] = stripslashes($_POST['title']); }
@@ -230,19 +230,23 @@ function html_page() {
 	<div class=\"wrapper ".$MY_ENV['project']."\">
 		<div class=\"content\">
 			<div class=\"title\">
-				<h1>".$MY_ENV['title']."</h1> <br>
+				<h1>".$MY_ENV['title']."</h1> 
+				<p>&nbsp;</p>
 				<h2>".$MY_ENV['description']."</h2>
 			</div>
 			<div class=\"author\">
 				".$MY_ENV['htmlimgurl']."				
 				<p class=\"name\">".$MY_ENV['name']."</p>
-				<p class=\"email\">".$MY_ENV['email']."</p>
+				<p class=\"email\">".$MY_ENV['email']."&nbsp;</p>
 			</div>
 			<div class=\"info\">
 				<p><span>".$MY_ENV['date']."</span><span>".$lang[$MY_ENV['target']]."</span><span>".$lang['language'].": ".$MY_ENV['language']."</span></p>
 				<p>".$MY_ENV['wwwurl'][$MY_ENV['project']]."</p>
 			</div>
+		</div>
+	</div><!-- /wrapper -->
 
+	<div class=\"footerwrapper ".$MY_ENV['project']."\">
 			<footer>
 				<p class=\"version\"><span>".ucfirst($MY_ENV['project'])."</span>";
   if(trim($MY_ENV['version']) != "") {
@@ -261,9 +265,7 @@ function html_page() {
 					<span class=\"yellow\">&nbsp;</span>
 				</div>
 			</footer>
-		</div>
-	</div>
-
+	</div><!-- /wrapper -->
 </body>
 </html>";
   return $return;
