@@ -1,0 +1,12 @@
+<?php
+$MY_ENV['title'] = "";
+$MY_ENV['description'] = "";
+$MY_ENV['project'] = "";
+$MY_ENV['version'] = "";
+$MY_ENV['target'] = "";
+$MY_ENV['name'] = "";
+$MY_ENV['email'] = "";
+$MY_ENV['date'] = "";
+$MY_ENV['language'] = "";
+$MY_ENV['imgurl'] = "";
+?>

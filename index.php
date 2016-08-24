@@ -3,6 +3,17 @@ $MY_ENV = array();
 $MY_ENV['complete'] = "yes"; // assume the best: we got all what we need in the form
 $MY_ENV['message']  = ""; // empty to start with, might become an error message later, used in form
 $MY_ENV['date']     = date('j. F Y');
+
+/*
+* Load default values.
+* If the file preset.php exists in the same dir as this file,
+* it will be loaded and can be used to populate the form.
+* See preset.php.empty for the structure.
+*/
+if(file_exists("preset.php")) {
+  include("preset.php");
+}
+
 // URL shown on screencast page
 $MY_ENV['wwwurl']['airtime']      = "www.airtime.pro";
 $MY_ENV['wwwurl']['booktype']     = "www.booktype.pro";
@@ -62,6 +73,7 @@ if ($MY_ENV['project'] == "superdesk")      { $MY_ENV['selected']['projsuperdesk
 if ($MY_ENV['project'] == "screencast")     { $MY_ENV['selected']['projscreencast'] = " SELECTED"; } 
 if ($MY_ENV['project'] == "sourcefabric")   { $MY_ENV['selected']['projsourcefabric'] = " SELECTED"; } 
 if ($MY_ENV['target'] == "editors")         { $MY_ENV['selected']['targeditors'] = " SELECTED"; } 
+if ($MY_ENV['target'] == "authors")         { $MY_ENV['selected']['targauthors'] = " SELECTED"; } 
 if ($MY_ENV['target'] == "template")        { $MY_ENV['selected']['targtemplate'] = " SELECTED"; } 
 if ($MY_ENV['target'] == "administration")  { $MY_ENV['selected']['targadministration'] = " SELECTED"; } 
 if ($MY_ENV['target'] == "trainer")         { $MY_ENV['selected']['targtrainer'] = " SELECTED"; } 
