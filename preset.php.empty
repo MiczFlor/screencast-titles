@@ -1,12 +1,12 @@
 <?php
-$MY_ENV['title'] = "";
-$MY_ENV['description'] = "";
-$MY_ENV['project'] = "";
-$MY_ENV['version'] = "";
-$MY_ENV['target'] = "";
-$MY_ENV['name'] = "";
-$MY_ENV['email'] = "";
-$MY_ENV['date'] = "";
-$MY_ENV['language'] = "";
-$MY_ENV['imgurl'] = "";
+$MY_ENV['title'] = ""; // free text
+$MY_ENV['description'] = ""; // free text
+$MY_ENV['project'] = ""; // one of $MY_ENV['project'], e.g. "booktype"
+$MY_ENV['version'] = ""; // free text, e.g. "2.1"
+$MY_ENV['target'] = ""; // one of $MY_ENV['target'], e.g. "editors"
+$MY_ENV['name'] = ""; // free text, full name of presenter
+$MY_ENV['email'] = ""; // free text
+$MY_ENV['date'] = ""; // free text, e.g. "25th of August 2016"
+$MY_ENV['language'] = ""; // free text, e.g. "English"
+$MY_ENV['imgurl'] = ""; // complete image url 
 ?>
